@@ -1,10 +1,16 @@
 
+import java.sql.SQLOutput;
 import java.util.Objects;
 
 public class Main {
+
+
+    public static Employee[] employees = new Employee[10];
+
+
     public static void main(String[] args) {
         System.out.println("Coursework_1");
-        Employee[] employees = new Employee[10];
+
 
         employees[0] = new Employee(1, "Иванов", "Иван",
                 "Иванович", 1, 50_000);
@@ -26,41 +32,70 @@ public class Main {
                 "Зябликович", 5, 54_000);
         employees[9] = new Employee(10, "Крендель", "Крендель",
                 "Кренделевич", 5, 56_000);
-        for (int i = 0; i < 10; i++) {
+
+        for (int i = 0; i < employees.length; i++) {
             System.out.println(employees[i]);
-            System.out.println(employees[i].hashCode() == employees[i].hashCode());
-
-        }
-        int[] salary = {50_000, 51_000, 52_000, 53_000, 51_000, 52_000,
-                55_000, 51_000, 54_000, 56_000};
-        int sum = 0;
-        for (int i = 0; i < salary.length; i++) {
-            sum += salary[i];
-        }
-        System.out.printf("Сумма зарплат работников составила %s рублей %n", sum);
-        double minSalary = salary[0];
-        double maxSalary = salary[0];
-        for (int i = 0; i < salary.length; i++) {
-
-            if (salary[i] > minSalary) {
-                maxSalary = salary[i];
-            }
-            if (salary[i] < maxSalary) {
-                minSalary = salary[i];
-            }
         }
 
-        System.out.println("Максимальная зарплата работника за месяц " + maxSalary);
+
+        int sumSalary = getSumSalaries();
+        System.out.println("Сумма зарплат работников составила  " + sumSalary + " рублей");
+
+        Employee minSalary = getMinSalary();
         System.out.println("Минимальная зарплата работника за месяц " + minSalary);
-        double sum2 = 0;
-        for (int i = 0; i < salary.length; i++) {
-            sum2 += salary[i];
+
+        Employee maxSalary = getMaxSalary();
+        System.out.println("Максимальная зарплата работника за месяц " + maxSalary);
+
+        int averageSumSalary = getSumSalaries() / 10;
+        System.out.println("Средняя зарплата сотрудников " +
+                "составила  " + averageSumSalary + " рублей");
+    }
+
+
+    private static int getSumSalaries() {
+        int sum = 0;
+        for (int i = 0; i < employees.length; i++) {
+            sum += employees[i].getSalary();
         }
-        double averageSum = ((double) sum2 / salary.length);
-        System.out.printf("Средняя зарплата сотрудников = " +
-                "составила %s рублей%n ", averageSum);
+        return sum;
+    }
+
+
+    private static Employee getMinSalary() {
+        Employee minSalaryEmployee = employees[0];
+        for (int i = 0; i < employees.length; i++) {
+            if (minSalaryEmployee.getSalary() > employees[i].getSalary()) {
+                minSalaryEmployee = employees[i];
+            }
+        }
+        return minSalaryEmployee;
+    }
+
+    private static Employee getMaxSalary() {
+        Employee maxSalaryEmployee = employees[0];
+        for (int i = 0; i < employees.length; i++) {
+            if (maxSalaryEmployee.getSalary() < employees[i].getSalary()) {
+                maxSalaryEmployee = employees[i];
+            }
+        }
+        return maxSalaryEmployee;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

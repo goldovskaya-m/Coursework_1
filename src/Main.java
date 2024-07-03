@@ -47,11 +47,16 @@ public class Main {
         Employee maxSalary = getMaxSalary();
         System.out.println("Максимальная зарплата работника за месяц " + maxSalary);
 
-        int averageSumSalary = getSumSalaries() / 10;
+        int averageSumSalary = getAverageSumSalary();
         System.out.println("Средняя зарплата сотрудников " +
                 "составила  " + averageSumSalary + " рублей");
     }
 
+    private static int getAverageSumSalary() {
+        int averageSumSalary = getSumSalaries() / 10;
+
+        return averageSumSalary;
+    }
 
     private static int getSumSalaries() {
         int sum = 0;

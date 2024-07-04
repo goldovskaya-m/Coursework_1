@@ -53,7 +53,7 @@ public class Main {
     }
 
     private static int getAverageSumSalary() {
-        int averageSumSalary = getSumSalaries() / 10;
+        int averageSumSalary = getSumSalaries() / employees.length;
 
         return averageSumSalary;
     }

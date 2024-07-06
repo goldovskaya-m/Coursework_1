@@ -8,14 +8,11 @@ public class Employee {
     private String patronymic;
     private int department;
     private int salary;
-
-
     public Employee(int id, String lastName,
                     String firstName,
                     String patronymic,
                     int department,
                     int salary) {
-
         this.lastName = lastName;
         this.firstName = firstName;
         this.patronymic = patronymic;
@@ -23,36 +20,27 @@ public class Employee {
         this.salary = checkSalary(salary);
         this.id = ++idCounter;
     }
-
-
     public static int getIdCounter() {
         return idCounter;
     }
-
     public String getLastName() {
         return lastName;
     }
-
     public String setLastName() {
         return this.lastName;
     }
-
     public String getFirstName() {
         return firstName;
     }
-
     public String setFirstName() {
         return this.firstName;
     }
-
     public String getPatronymic() {
         return patronymic;
     }
-
     public String setPatronymic() {
         return this.patronymic;
     }
-
     public int getDeportment() {
         return department;
     }

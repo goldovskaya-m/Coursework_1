@@ -1,10 +1,16 @@
 
 import java.sql.SQLOutput;
 import java.util.Objects;
+
 public class Main {
     public static Employee[] employees = new Employee[10];
+
+
     public static void main(String[] args) {
+
+
         System.out.println("Coursework_1");
+
         employees[0] = new Employee(1, "Иванов", "Иван",
                 "Иванович", 1, 50_000);
         employees[1] = new Employee(2, "Петров", "Пётр",
@@ -25,9 +31,11 @@ public class Main {
                 "Зябликович", 5, 54_000);
         employees[9] = new Employee(10, "Крендель", "Крендель",
                 "Кренделевич", 5, 56_000);
-        for (int i = 0; i < employees.length; i++) {
-            System.out.println(employees[i]);
-        }
+        printAll();
+        System.out.println(Employee.getIdCounter());
+
+
+
         int sumSalary = getSumSalaries();
         System.out.println("Сумма зарплат работников составила  " + sumSalary + " рублей");
 
@@ -43,15 +51,21 @@ public class Main {
 
         int idCounter = getIdCounter();
         System.out.println("В фирме работает " + idCounter + "  сотрудников");
+
     }
+
+
+
     private static int getIdCounter() {
         int idCounter = employees.length;
         return idCounter;
     }
+
     private static int getAverageSumSalary() {
         int SumSalary = getSumSalaries() / employees.length;
         return SumSalary;
     }
+
     private static int getSumSalaries() {
         int sum = 0;
         for (int i = 0; i < employees.length; i++) {
@@ -59,6 +73,7 @@ public class Main {
         }
         return sum;
     }
+
     private static Employee getMinSalary() {
         Employee minSalaryEmployee = employees[0];
         for (int i = 0; i < employees.length; i++) {
@@ -68,6 +83,7 @@ public class Main {
         }
         return minSalaryEmployee;
     }
+
     private static Employee getMaxSalary() {
         Employee maxSalaryEmployee = employees[0];
         for (int i = 0; i < employees.length; i++) {
@@ -77,7 +93,15 @@ public class Main {
         }
         return maxSalaryEmployee;
     }
-}
+        private static void printAll() {
+            for (int i = 0; i < employees.length; i++) {
+                System.out.println(employees[i]);
+
+            }
+        }
+    }
+
+
 
 
 
